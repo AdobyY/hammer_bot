@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Логи
+*.log
+
+# Налаштування IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Директорії для пакетів
+env/
+venv/
+ENV/
+venv.bak/
+.env
+.venv/
+
+# Інші
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+*.tar.gz
+
+# Журнал змін
+*.DS_Store
+*.bak
+
+# Інші конфігураційні файли
+*.swp
