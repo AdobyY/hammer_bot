@@ -1,7 +1,8 @@
 from aiogram import F, Router
 
-from aiogram.types import Message, InputFile
-from aiogram.filters import CommandStart
+from aiogram.types import Message
+from aiogram.filters import CommandStart, Command
+
 
 from app.utils import *
 
@@ -12,9 +13,7 @@ async def start(message: Message):
     await message.answer("Привіт, давай я допоможу тобі ")
 
 
-
-
-@router.message(F.text == "о")
+@router.message(Command("monitor"))
 async def start_monitoring(message: Message):
     symbols = [
         'BTC/USDT', 
@@ -58,10 +57,11 @@ async def start_monitoring(message: Message):
 
     await monitor_candlesticks(symbols, timeframe, message)
 
+
 @router.message(F.text == "p")
 async def start_monitoring(message: Message):
     symbol = 'BTC/USDT'  # Список криптовалют для моніторингу
-    timeframe = '1m'  # Таймфрейм свічок: 1h, 1m тощо
+    timeframe = '15m'  # Таймфрейм свічок: 1h, 1m тощо
     await message.answer("Надсилаю..")
 
     chart_image = create_chart(symbol, timeframe)

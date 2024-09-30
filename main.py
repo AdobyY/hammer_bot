@@ -7,7 +7,6 @@ import os
 from app.handlers import router
 
 
-
 load_dotenv()
 
 logging.basicConfig(
@@ -26,6 +25,7 @@ async def main():
     dp = Dispatcher()
     dp.include_router(router)
     logger.info("Бот запущено і готовий до роботи")
+    print("^^^^^^ Запуск бота ^^^^^^")
 
     await dp.start_polling(bot)
 
