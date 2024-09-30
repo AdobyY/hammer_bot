@@ -27,12 +27,15 @@ async def check_candle(symbol, timeframe, message):
             last_checked = close_time
 
             # Викликаємо функцію is_hammer_or_sword для перевірки свічки
-            if is_hammer_or_sword(latest_candle) and check_three_candles(ohlcv[:3]):
+            if (is_hammer_or_sword(latest_candle) == "hammer" and check_three_candles(ohlcv[:3]) == "red"
+                or
+                is_hammer_or_sword(latest_candle) == "sword" and check_three_candles(ohlcv[:3]) == "green"):
                 # Якщо свічка відповідає умовам, надсилаємо графік
                 chart_image = create_chart(symbol, timeframe)
                 input_file = BufferedInputFile(chart_image.getvalue(), filename='candlestick_chart.png')
 
                 # Надсилаємо зображення користувачу
+                print(f"-------Send {symbol} chart-------")
                 await message.answer_photo(input_file, caption=f"Графік для {symbol}")
 
         await asyncio.sleep(60)  # Чекаємо 60 секунд перед наступною перевіркою
@@ -47,7 +50,7 @@ def is_hammer_or_sword(latest_candle):
 
     hammer = (upper_wick < body) & (lower_wick > 2 * body)
     sword = (lower_wick < body) & (upper_wick > 2 * body)
-    return hammer | sword
+    return "hammer" if hammer else "sword" if sword else None
 
 
 # Функція для перевірки, чи три свічки підряд зелені або червоні
@@ -61,7 +64,7 @@ def check_three_candles(candles):
     all_green = is_green(first_candle) and is_green(second_candle) and is_green(third_candle)
     all_red = is_red(first_candle) and is_red(second_candle) and is_red(third_candle)
 
-    return all_green or all_red
+    return "green" if all_green else "red" if all_red else None
 
 
 def create_chart(symbol, timeframe):

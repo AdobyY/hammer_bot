@@ -54,7 +54,7 @@ async def start_monitoring(message: Message):
     ]
 
     timeframe = '1m'
-    await message.answer("Надсилаю..")
+    await message.answer("Моніторюю..")
 
     await monitor_candlesticks(symbols, timeframe, message)
 
