@@ -31,9 +31,29 @@ async def start_monitoring(message: Message):
         'AVAX/USDT', 
         'TRX/USDT', 
         'XLM/USDT', 
-        'SHIB/USDT'
-    ]  # Список криптовалют для моніторингу
-    timeframe = '1m'  # Таймфрейм свічок: 1h, 1m тощо
+        'SHIB/USDT',
+        'ATOM/USDT',  # Cosmos
+        'NEAR/USDT',  # Near Protocol
+        'FTM/USDT',   # Fantom
+        'ICP/USDT',   # Internet Computer
+        'SAND/USDT',  # Sandbox
+        'AAVE/USDT',  # Aave
+        'UNI/USDT',   # Uniswap
+        'GRT/USDT',   # The Graph
+        'ALGO/USDT',  # Algorand
+        'VET/USDT',   # VeChain
+        'AXS/USDT',   # Axie Infinity
+        'EGLD/USDT',  # Elrond
+        'FIL/USDT',   # Filecoin
+        'KSM/USDT',   # Kusama
+        'RUNE/USDT',  # THORChain
+        'ENJ/USDT',   # Enjin Coin
+        '1INCH/USDT', # 1inch
+        'ZIL/USDT',   # Zilliqa
+        'ZRX/USDT'    # 0x
+    ]
+
+    timeframe = '1m'
     await message.answer("Надсилаю..")
 
     await monitor_candlesticks(symbols, timeframe, message)
