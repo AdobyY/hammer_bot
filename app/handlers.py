@@ -52,8 +52,8 @@ async def start_monitoring(message: Message):
         'ZRX/USDT'    # 0x
     ]
 
-    timeframe = '1m'
-    await message.answer("Моніторюю..")
+    timeframe = '15m'
+    await message.answer("Починаю моніторити..")
 
     await monitor_candlesticks(symbols, timeframe, message)
 
