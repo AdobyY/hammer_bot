@@ -52,16 +52,16 @@ async def start_monitoring(message: Message):
         'ZRX/USDT'    # 0x
     ]
 
-    timeframe = '15m'
+    timeframe = '5m'
     await message.answer("Починаю моніторити..")
 
     await monitor_candlesticks(symbols, timeframe, message)
 
 
 @router.message(F.text == "p")
-async def start_monitoring(message: Message):
+async def send(message: Message):
     symbol = 'BTC/USDT'  # Список криптовалют для моніторингу
-    timeframe = '15m'  # Таймфрейм свічок: 1h, 1m тощо
+    timeframe = '5m'  # Таймфрейм свічок: 1h, 1m тощо
     await message.answer("Надсилаю..")
 
     chart_image = create_chart(symbol, timeframe)
@@ -70,4 +70,8 @@ async def start_monitoring(message: Message):
     # Надсилаємо зображення користувачу
     await message.answer_photo(input_file, caption=f"Графік для {symbol}")
 
+
+@router.message()
+async def message(message: Message):
+    await message.answer(message)
 
