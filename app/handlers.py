@@ -73,5 +73,6 @@ async def send(message: Message):
 
 @router.message()
 async def message(message: Message):
-    await message.answer(message)
+    words = message.text.split(" ")
+    await message.answer(words[-1])
 
