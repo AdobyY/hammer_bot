@@ -15,42 +15,44 @@ async def start(message: Message):
 
 @router.message(Command("monitor"))
 async def start_monitoring(message: Message):
-    symbols = [
-        'BTC/USDT', 
-        'ETH/USDT', 
-        'LTC/USDT', 
-        'XRP/USDT', 
-        'BCH/USDT', 
-        'DOT/USDT', 
-        'LINK/USDT', 
-        'SOL/USDT', 
-        'ADA/USDT', 
-        'DOGE/USDT', 
-        'MATIC/USDT', 
-        'AVAX/USDT', 
-        'TRX/USDT', 
-        'XLM/USDT', 
-        'SHIB/USDT',
-        'ATOM/USDT',  # Cosmos
-        'NEAR/USDT',  # Near Protocol
-        'FTM/USDT',   # Fantom
-        'ICP/USDT',   # Internet Computer
-        'SAND/USDT',  # Sandbox
-        'AAVE/USDT',  # Aave
-        'UNI/USDT',   # Uniswap
-        'GRT/USDT',   # The Graph
-        'ALGO/USDT',  # Algorand
-        'VET/USDT',   # VeChain
-        'AXS/USDT',   # Axie Infinity
-        'EGLD/USDT',  # Elrond
-        'FIL/USDT',   # Filecoin
-        'KSM/USDT',   # Kusama
-        'RUNE/USDT',  # THORChain
-        'ENJ/USDT',   # Enjin Coin
-        '1INCH/USDT', # 1inch
-        'ZIL/USDT',   # Zilliqa
-        'ZRX/USDT'    # 0x
-    ]
+    # symbols = [
+    #     'BTC/USDT', 
+    #     'ETH/USDT', 
+    #     'LTC/USDT', 
+    #     'XRP/USDT', 
+    #     'BCH/USDT', 
+    #     'DOT/USDT', 
+    #     'LINK/USDT', 
+    #     'SOL/USDT', 
+    #     'ADA/USDT', 
+    #     'DOGE/USDT', 
+    #     'MATIC/USDT', 
+    #     'AVAX/USDT', 
+    #     'TRX/USDT', 
+    #     'XLM/USDT', 
+    #     'SHIB/USDT',
+    #     'ATOM/USDT',  # Cosmos
+    #     'NEAR/USDT',  # Near Protocol
+    #     'FTM/USDT',   # Fantom
+    #     'ICP/USDT',   # Internet Computer
+    #     'SAND/USDT',  # Sandbox
+    #     'AAVE/USDT',  # Aave
+    #     'UNI/USDT',   # Uniswap
+    #     'GRT/USDT',   # The Graph
+    #     'ALGO/USDT',  # Algorand
+    #     'VET/USDT',   # VeChain
+    #     'AXS/USDT',   # Axie Infinity
+    #     'EGLD/USDT',  # Elrond
+    #     'FIL/USDT',   # Filecoin
+    #     'KSM/USDT',   # Kusama
+    #     'RUNE/USDT',  # THORChain
+    #     'ENJ/USDT',   # Enjin Coin
+    #     '1INCH/USDT', # 1inch
+    #     'ZIL/USDT',   # Zilliqa
+    #     'ZRX/USDT'    # 0x
+    # ]
+
+    symbols = ["BTC/USDT"]
 
     timeframe = '1m'
     await message.answer("Починаю моніторити..")
