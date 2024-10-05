@@ -56,17 +56,27 @@ async def start_monitoring(message: Message):
         'ETH/USDT', 
         'LTC/USDT', 
         'XRP/USDT', 
-        'BCH/USDT',]
+        'BCH/USDT', 
+        'DOT/USDT', 
+        'LINK/USDT', 
+        'SOL/USDT', 
+        'ADA/USDT', 
+        'DOGE/USDT', 
+        'MATIC/USDT', 
+        'AVAX/USDT', 
+        'TRX/USDT', 
+        'XLM/USDT', 
+        'SHIB/USDT',]
 
     timeframe = '15m'
-    await message.answer("Починаю моніторити..")
+    await message.answer(f"Починаю моніторити.. {timeframe}")
     try:
         await monitor_candlesticks(symbols, timeframe, message)
     except:
         await message.answer("Щось пішло не так..")
 
 
-@router.message(F.text == "p")
+@router.message(F.text == "/get")
 async def send(message: Message):
     symbol = 'BTC/USDT'  # Список криптовалют для моніторингу
     timeframe = '15m'  # Таймфрейм свічок: 1h, 1m тощо
